@@ -1,13 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.datastructfinals;
 
-/**
- *
- * @author keyshii
- */
+import java.util.PriorityQueue;
+
 public class TaskHeap {
-    
+
+    PriorityQueue<Task> heap = new PriorityQueue<>(
+        (a, b) -> Integer.compare(b.priority, a.priority)
+    );
+
+    public void add(Task task) {
+        heap.add(task);
+    }
+
+    public Task remove() {
+        return heap.poll();
+    }
+
+    public void display() {
+        if (heap.isEmpty()) {
+            System.out.println("No tasks in priority queue.");
+            return;
+        }
+
+        for (Task task : heap) {
+            task.display();
+        }
+    }
 }
